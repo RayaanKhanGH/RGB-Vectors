@@ -69,28 +69,6 @@ class vector():
                 dominant_color = color
 
         return dominant_color, largest_count
-    
-    def create(self):
-        # Calculate the size of the image based on the length of the input array
-        width = 10
-        height = len(self.vals) // width
-
-        # Create a new RGB image with the specified size
-        img = Image.new("RGB", (width, height))
-
-        # Loop through the input array and color each pixel in the image
-        for i, pixel in enumerate(self.vals):
-            # Decode the combined RGB value
-            r, g, b = decode_combined(pixel[0])
-            # Calculate the x and y coordinates of the pixel
-            x = i % width
-            y = i // width
-            # Set the color of the pixel in the image
-            img.putpixel((x, y), (r, g, b))
-
-        # Save the image to disk
-        img.save("output.png")
-                            
 
 
     def __vector__(self):
@@ -123,7 +101,7 @@ def decode_combined(combined):
         return r_, g_, b_
 
 
-def create(array: list):
+def create(self, array: list):
     # Calculate the size of the image based on the length of the input array
     width = 10
     height = len(array) // width
